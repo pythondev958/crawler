@@ -1,1 +1,1 @@
-web: gunicorn nlp_project.wsgi --log-file -
+web: gunicorn webscrapping_project_.wsgi --log-file -
