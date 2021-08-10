@@ -31,9 +31,9 @@ DATABASES = {
 SECRET_KEY = 'django-insecure-nua$27$isjnq)#^5g0+vvjnua=++tfmrwr$c7bbw9o*v@1dh+s'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -48,8 +48,20 @@ INSTALLED_APPS = [
     'main_module',
 ]
 
+
+
+import os
+
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR,"staticfiles")
+MEDIA_ROOT= os.path.join(BASE_DIR,"media")
+MEDIA_URL='/media/'
+
+
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
